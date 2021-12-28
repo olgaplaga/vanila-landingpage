@@ -28,6 +28,11 @@ body {
     right: 30px
 }
 
+#date {
+    position: fixed;
+    top: 30px;
+    left: 30px
+}
 
 time {
     font-size: 6rem;

@@ -1,3 +1,5 @@
+//https://www.youtube.com/watch?v=fSTQzlprGLI
+
 //DOM elements import
 const time = document.getElementById("time");
 const greeting = document.getElementById("greeting");
@@ -5,6 +7,7 @@ const name = document.getElementById("name");
 const focus = document.getElementById("focus");
 const weather = document.getElementById("weather");
 const weatherPlace = document.getElementById('weather-place')
+const dateTime = document.getElementById("date")
 const api = "a4c1dcf658b5b247c8ec980651823f4c";
 
 
@@ -13,14 +16,16 @@ const api = "a4c1dcf658b5b247c8ec980651823f4c";
 function showTime() {
   let today = new Date();
   let hours = today.getHours();
-  let minutes = today.getMinutes();
-  let seconds = today.getSeconds();
+
+  //i dont use this two
+//   let minutes = today.getMinutes();
+//   let seconds = today.getSeconds();
 
   //Am or PM - can use it but i will not
-  const amPM = hours >= 12 ? "PM" : "AM";
+//   const amPM = hours >= 12 ? "PM" : "AM";
 
   //12hr format - can use it but i will not
-  hours = hours % 12 || 12;
+//   hours = hours % 12 || 12;
 
   //Output time
   time.textContent = today.toLocaleTimeString();
@@ -33,9 +38,9 @@ function showTime() {
 }
 
 //add zeros - i dont use it as well
-function addZero(n) {
-  return (parseInt(n, 10) < 10 ? "0" : "") + n;
-}
+// function addZero(n) {
+//   return (parseInt(n, 10) < 10 ? "0" : "") + n;
+// }
 
 //Set Background and greeting
 function setBgGreeting() {
@@ -128,12 +133,18 @@ function showWeather() {
   }
 }
 
+function showDate() {
+    let date = new Date()
+    dateTime.textContent = date.toLocaleDateString();
+}
+
 //saving the text when user press key or click outside text field
 name.addEventListener("keypress", setName);
 name.addEventListener("blur", setName);
 focus.addEventListener("keypress", setFocus);
 focus.addEventListener("blur", setFocus);
 window.addEventListener("load", showWeather);
+window.addEventListener("load", showDate);
 
 
 
